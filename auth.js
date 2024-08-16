@@ -1,11 +1,8 @@
 // Set up the OAuth2 authentication flow to authenticate the router with google
 const { google } = require("googleapis");
-const dotenv = require("dotenv");
 const express = require("express");
 
 const router = express.Router();
-
-dotenv.config();
 
 const scopes = ["https://www.googleapis.com/auth/calendar"];
 
@@ -36,6 +33,10 @@ router.get("/auth/redirect", async (req, res) => {
     } catch (err) {
         res.status(500).json("Authentication failed.");
     }
+});
+
+router.get("/test", (req, res) => {
+    res.status(200).json("Works perfectly");
 });
 
 module.exports = {oauth2Client, router};
