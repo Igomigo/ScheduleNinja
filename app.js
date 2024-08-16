@@ -54,7 +54,7 @@ const event = {
     ],
 };
 
-//app.post("./create-event", async (req, res) => {
+/**app.post("./create-event", async (req, res) => {
     // Handles POST request to create a google calendar event
     try {
         const {
@@ -100,7 +100,7 @@ const event = {
         console.log(err);
         res.send(err);
     }
-//});
+});*/
 
 app.get("/create-event", async (req, res) => {
     try {
