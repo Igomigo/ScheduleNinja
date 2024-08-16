@@ -1,4 +1,3 @@
-
 # ScheduleNinja
 
 ScheduleNinja is an event scheduler application that integrates with the Google Calendar API to create and manage events directly on your Google Calendar. This app allows users to create events, schedule Google Meet meetings, and invite attendees, all through a simple and easy-to-use interface.
@@ -25,103 +24,103 @@ Before running the app, ensure you have the following installed:
 
 1. Clone the repository:
 
-\`\`\`bash
-git clone https://github.com/yourusername/scheduleninja.git
-cd scheduleninja
-\`\`\`
+    ```bash
+    git clone https://github.com/yourusername/scheduleninja.git
+    cd scheduleninja
+    ```
 
 2. Install dependencies:
 
-\`\`\`bash
-npm install
-\`\`\`
+    ```bash
+    npm install
+    ```
 
 3. Set up environment variables:
 
-Create a \`.env\` file in the root of the project and add your Google OAuth credentials:
+    Create a `.env` file in the root of the project and add your Google OAuth credentials:
 
-\`\`\`bash
-CLIENT_ID=your_google_client_id
-CLIENT_SECRET=your_google_client_secret
-REDIRECT_URL=http://localhost:5000/auth/redirect
-PORT=5000
-\`\`\`
+    ```bash
+    CLIENT_ID=your_google_client_id
+    CLIENT_SECRET=your_google_client_secret
+    REDIRECT_URL=http://localhost:5000/auth/redirect
+    PORT=5000
+    ```
 
 4. Run the app:
 
-\`\`\`bash
-npm start
-\`\`\`
+    ```bash
+    npm start
+    ```
 
-The server will start on \`http://localhost:5000\`.
+The server will start on `http://localhost:5000`.
 
 ### Authentication
 
-To authenticate the app with Google, visit \`http://localhost:5000/auth\`. This will redirect you to Google's authentication page. After granting access, you will be redirected back to the app with authentication tokens set.
+To authenticate the app with Google, visit `http://localhost:5000/auth`. This will redirect you to Google's authentication page. After granting access, you will be redirected back to the app with authentication tokens set.
 
 ### API Endpoints
 
 #### Root Route
 
-- **\`GET /\`**: Returns a welcome message.
+- **`GET /`**: Returns a welcome message.
 
 #### Create Event
 
-- **\`GET /create-event\`**: Creates a predefined event with a Google Meet link. This is a demo route that uses hardcoded event data.
+- **`GET /create-event`**: Creates a predefined event with a Google Meet link. This is a demo route that uses hardcoded event data.
 
-- **\`POST /create-event\`**:
+- **`POST /create-event`**:
   - **Description**: Creates a custom event on Google Calendar.
   - **Request Body**:
-    - \`summary\` (string): The title of the event.
-    - \`location\` (string): The location of the event.
-    - \`description\` (string): A brief description of the event.
-    - \`startDate\` (string): The start date and time in ISO format.
-    - \`endDate\` (string): The end date and time in ISO format.
-    - \`timeZone\` (string): The time zone for the event.
+    - `summary` (string): The title of the event.
+    - `location` (string): The location of the event.
+    - `description` (string): A brief description of the event.
+    - `startDate` (string): The start date and time in ISO format.
+    - `endDate` (string): The end date and time in ISO format.
+    - `timeZone` (string): The time zone for the event.
   - **Response**:
-    - \`status\` (string): Status of the request.
-    - \`message\` (string): Message indicating the event creation status.
-    - \`link\` (string): Google Meet link for the event.
+    - `status` (string): Status of the request.
+    - `message` (string): Message indicating the event creation status.
+    - `link` (string): Google Meet link for the event.
 
 #### Authentication Routes
 
-- **\`GET /auth\`**: Redirects the user to Google's authentication page.
-- **\`GET /auth/redirect\`**: Handles the OAuth2 callback and sets up the user's credentials.
+- **`GET /auth`**: Redirects the user to Google's authentication page.
+- **`GET /auth/redirect`**: Handles the OAuth2 callback and sets up the user's credentials.
 
 ### Code Overview
 
-#### \`App.js\`
+#### `App.js`
 
-- Sets up the Express server with middleware for logging (\`morgan\`), JSON parsing, and routing.
+- Sets up the Express server with middleware for logging (`morgan`), JSON parsing, and routing.
 - Initializes the Google Calendar API using OAuth2 authentication.
 - Includes routes for creating events and testing the server.
-- The \`create-event\` route (currently using \`GET\` for demo purposes) allows for creating a predefined event with Google Meet integration.
+- The `create-event` route (currently using `GET` for demo purposes) allows for creating a predefined event with Google Meet integration.
 
-#### \`Auth.js\`
+#### `Auth.js`
 
 - Handles the OAuth2 authentication flow with Google.
-- Defines routes for starting the authentication process (\`/auth\`) and handling the OAuth2 callback (\`/auth/redirect\`).
+- Defines routes for starting the authentication process (`/auth`) and handling the OAuth2 callback (`/auth/redirect`).
 - Sets the authenticated user's credentials for use with the Google Calendar API.
 
 ### Usage
 
 1. Start the server:
 
-\`\`\`bash
-npm start
-\`\`\`
+    ```bash
+    npm start
+    ```
 
 2. Authenticate with Google by visiting:
 
-\`\`\`
-http://localhost:5000/auth
-\`\`\`
+    ```bash
+    http://localhost:5000/auth
+    ```
 
 3. Create an event by visiting:
 
-\`\`\`
-http://localhost:5000/create-event
-\`\`\`
+    ```bash
+    http://localhost:5000/create-event
+    ```
 
 This will create a predefined event on your Google Calendar and return a Google Meet link.
 
