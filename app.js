@@ -30,16 +30,16 @@ const calendar = google.calendar({
 
 // Create events and google meet meetings on the google calendar
 const event = {
-    summary: "Let's talk Tech",
+    summary: "Let's talk Software",
     location: 'Google Meet',
 
     description: "Demo event for the Tech Conference.",
     start: {
-        dateTime: "2024-08-23T20:00:00+05:30",
+        dateTime: "2024-08-22T20:00:00+05:30",
         timeZone: 'Africa/Lagos'
     },
     end: {
-        dateTime: "2024-08-23T21:00:00+05:30",
+        dateTime: "2024-08-22T21:00:00+05:30",
         timeZone: 'Africa/Lagos'
     },
     colorId: 1,
